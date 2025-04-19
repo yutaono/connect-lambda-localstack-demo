@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package greet.v1;
+
+option go_package = "connect-lambda-localstack-demo/gen/greet/v1;greetv1";
+
+message GreetRequest {
+  string name = 1;
+}
+
+message GreetResponse {
+  string greeting = 1;
+}
+
+message GetTimeRequest {
+  string timezone = 1; 
+}
+
+message GetTimeResponse {
+  string current_time = 1;
+}
+
+service GreetService {
+  rpc Greet(GreetRequest) returns (GreetResponse) {}
+
+  rpc GetTime(GetTimeRequest) returns (GetTimeResponse) {}
+}
